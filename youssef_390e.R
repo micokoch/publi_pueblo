@@ -85,3 +85,16 @@ ggplot(data = a.glm.pfos, mapping = aes(x = pfos, y = INDFMPIR)) +
 
 write_csv(base, "base.csv")
 write_csv(abase, "abase.csv")
+
+
+# Group 1
+orgphos2013 <- nhanes('UPHOPM_H')
+depress2013 <- nhanes('DPQ_H')
+group1 <- merge(orgphos2013, depress2013)
+write_csv(group1, "group1.csv")
+
+# Group 2
+nicoturi2014 <- nhanes('UCOT_I')
+kidney014 <- nhanes('KIQ_U_I')
+group2 <- merge(nicoturi2014, kidney014)
+write_csv(group2, "group2.csv")
