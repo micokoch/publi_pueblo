@@ -17,7 +17,7 @@ write_csv(demogconf2015, "confounders2015.csv")
 #Confounders 2017
 demogconf2017 <- nhanes('DEMO_J') %>% 
   select(c('RIDAGEYR', 'RIAGENDR', 'RIDRETH3', 'INDHHIN2', 'INDFMPIR'))
-head(demogconf2017)
+#head(demogconf2017)
 write_csv(demogconf2017, "confounders2017.csv")
 
 # Group 1
