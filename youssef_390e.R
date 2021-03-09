@@ -94,18 +94,41 @@ group1 <- merge(orgphos2013, depress2013)
 write_csv(group1, "group1.csv")
 
 # Group 2
-nicoturi2014 <- nhanes('UCOT_I')
-kidney2014 <- nhanes('KIQ_U_I')
-group2 <- merge(nicoturi2014, kidney2014)
+nicoturi2015 <- nhanes('UCOT_I')
+kidney2015 <- nhanes('KIQ_U_I')
+group2 <- merge(nicoturi2015, kidney2015)
 write_csv(group2, "group2.csv")
 
 # Group 3
-pah2014 <- nhanes('PAH_I')
-heart2014 <- nhanes('CDQ_I')
-group3 <- merge(pah2014, heart2014)
+pah2015 <- nhanes('PAH_I')
+heart2015 <- nhanes('CDQ_I')
+group3 <- merge(pah2015, heart2015)
 write_csv(group3, "group3.csv")
 
 # Group 4
-depress2014 <- nhanes('DPQ_I')
-group4 <- merge(pah2014, heart2014)
+pah2015 <- nhanes('PAH_I')
+depress2015 <- nhanes('DPQ_I')
+group4 <- merge(pah2015, heart2015)
 write_csv(group4, "group4.csv")
+
+# Group 5
+bpa2015 <-nhanes('EPHPP_I')
+phthalate2015 <- nhanes('PHTHTE_I')
+body2015 <- nhanes('BMX_I')
+group5 <- merge(bpa2015, phthalate2015) %>% 
+  merge(body2015)
+write_csv(group5, "group5.csv")
+
+# Group 6
+pah2013 <- nhanes('PAH_H')
+cog2013 <- nhanes('CFQ_H')
+group6 <- merge(pah2013, cog2013)
+write_csv(group6, "group6.csv")
+
+# Group 7
+smoking2017 <- nhanes('SMQ_J')
+cotininebl2017 <- nhanes('COT_J')
+leadbl2017 <- nhanes('PBCD_J')
+group7 <- merge(smoking2017, cotininebl2017) %>% 
+  merge(leadbl2017)
+write_csv(group7, "group7.csv")
