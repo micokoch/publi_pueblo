@@ -95,6 +95,17 @@ write_csv(group1, "group1.csv")
 
 # Group 2
 nicoturi2014 <- nhanes('UCOT_I')
-kidney014 <- nhanes('KIQ_U_I')
-group2 <- merge(nicoturi2014, kidney014)
+kidney2014 <- nhanes('KIQ_U_I')
+group2 <- merge(nicoturi2014, kidney2014)
 write_csv(group2, "group2.csv")
+
+# Group 3
+pah2014 <- nhanes('PAH_I')
+heart2014 <- nhanes('CDQ_I')
+group3 <- merge(pah2014, heart2014)
+write_csv(group3, "group3.csv")
+
+# Group 4
+depress2014 <- nhanes('DPQ_I')
+group4 <- merge(pah2014, heart2014)
+write_csv(group4, "group4.csv")
