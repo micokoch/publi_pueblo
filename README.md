@@ -35,4 +35,8 @@ Here you will find the information you need to conduct your analyses. Following 
   Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/SMQ_J.htm  
   Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/COT_J.htm  
                https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/PBCD_J.htm  
-.  
+  
+6. Here are the codebooks for the confounders:  
+  6.1. 2013-2014: https://wwwn.cdc.gov/nchs/nhanes/2013-2014/demo_h.htm  
+  6.2. 2015-2016: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_i.htm  
+  6.3. 2017-2018: https://wwwn.cdc.gov/nchs/nhanes/2017-2018/DEMO_J.htm  
