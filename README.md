@@ -10,8 +10,8 @@ Here you will find the information you need to conduct your analyses. Following 
 4. You will have to join these tables.  
 5. How do I know what the variables mean? Here are the codebooks:  
   5.1. Group 1:  
-    Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/UPHOPM_H.htm  
-    Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DPQ_H.htm  
+    * Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/UPHOPM_H.htm  
+    * Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DPQ_H.htm  
   5.2. Group 2:  
   5.3. Group 3:  
   5.4. Group 4:  
