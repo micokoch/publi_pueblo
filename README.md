@@ -13,14 +13,22 @@ Here you will find the information you need to conduct your analyses. Following 
     * Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/UPHOPM_H.htm  
     * Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DPQ_H.htm  
   5.2. Group 2:  
+    * Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/UCOT_I.htm  
+    * Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/KIQ_U_I.htm  
   5.3. Group 3:  
+    * Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/PAH_I.htm  
+    * Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/CDQ_I.htm  
   5.4. Group 4:  
+    * Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/PAH_I.htm  
+    * Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DPQ_I.htm  
   5.5. Group 5:  
+    * Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/EPHPP_I.htm  
+    * Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BMX_I.htm  
   5.6. Group 6:  
+    * Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/PAH_H.htm  
+    * Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/CFQ_H.htm  
   5.7. Group 7:  
-  
-Some addtional notes:  
-1. How do I know what the variables mean?  
-  1.1. You can copy the variable name, add NHANES, the year, and paste it into Google. The first search item will probably be the codebook, which will give you a description for many variables. I will give 2 examples:  
-    1.1.1. Group 4: I pick their third variable (  
-2.A  
+    * Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/SMQ_J.htm  
+    * Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/COT_J.htm  
+               https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/PBCD_J.htm  
+.  
