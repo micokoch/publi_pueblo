@@ -12,12 +12,12 @@ Here you will find the information you need to conduct your analyses. Following 
   5.1. Group 1:  
     Exposure: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/UPHOPM_H.htm  
     Outcome: https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DPQ_H.htm  
-  7.2. Group 2:  
-  8.3. Group 3:  
-  9.4. Group 4:  
-  10.5. Group 5:  
-  11.6. Group 6:  
-  12.7. Group 7:  
+  5.2. Group 2:  
+  5.3. Group 3:  
+  5.4. Group 4:  
+  5.5. Group 5:  
+  5.6. Group 6:  
+  5.7. Group 7:  
   
 Some addtional notes:  
 1. How do I know what the variables mean?  
