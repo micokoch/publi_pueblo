@@ -46,10 +46,8 @@ write_csv(group4, "group4.csv")
 
 # Group 5
 bpa2015 <-nhanes('EPHPP_I')
-phthalate2015 <- nhanes('PHTHTE_I')
 body2015 <- nhanes('BMX_I')
-group5 <- merge(bpa2015, phthalate2015) %>% 
-  merge(body2015)
+group5 <- merge(bpa2015, body2015)
 write_csv(group5, "group5.csv")
 
 # Group 6
