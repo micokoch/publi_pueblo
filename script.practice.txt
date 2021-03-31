@@ -1,0 +1,55 @@
+install.packages("ggplot2")
+
+#descriptive stats
+
+summary(base)
+mean(base$LBXPFNA,na.rm=T)
+hist(base$LBXPFNA,na.rm=T)
+quantile(base$LBXPFNA, probs = seq(0, 1, 0.25))
+sd(base$LBXPFNA,na.rm=T)
+
+
+#Bivariate analyses
+
+
+#tapply() function
+tapply(base$LBXPFDE,base$RIAGENDR,mean,na.rm=T)
+#Is it really different
+a=lm(LBXPFDE~RIAGENDR,data=base)
+summary(a)
+
+#What about my outcome
+tapply(base$LUXSMED,base$RIAGENDR,mean,na.rm=T)
+b=lm(LUXSMED~RIAGENDR,data=base)
+summary(b)
+
+
+#plotting data
+library(ggplot2)
+ggplot(base, aes(x = LBXPFDE )) +                           # Basic ggplot2 histogram
+  geom_histogram()
+
+#Want to represent males and females
+base2=na.omit(base)
+ggplot(base2, aes(x = LBXPFDE, fill = factor(RIAGENDR))) +            # Draw two histograms in same plot
+  geom_histogram(alpha = 0.5, position = "identity")  #Add ,bins=60
+
+#Outcome
+
+ggplot(base2, aes(x = LUXCAPM, fill = factor(RIAGENDR))) +     # Draw two histograms in same plot
+  geom_histogram(alpha = 0.5, position = "identity",bins=60) 
+
+#geom_boxplot
+ggplot(base2, aes(x = LUXCAPM, y=RIAGENDR,fill = factor(RIAGENDR))) + # Draw two histograms in same plot
+  geom_boxplot(alpha = 0.5) 
+
+
+ggplot(base2, aes(x = LUXCAPM, y=RIDRETH3,fill = factor(RIDRETH3))) + # Draw two histograms in same plot
+  geom_boxplot(alpha = 0.5) 
+
+ggplot(base2, aes(x = LUXCAPM, y=factor(RIDRETH3),fill = factor(RIAGENDR))) + # Draw two histograms in same plot
+  geom_boxplot(alpha = 0.5) 
+
+
+ggplot(base2, aes(x = LUXCAPM, y=factor(RIDRETH3))) + # Draw two histograms in same plot
+  geom_boxplot(alpha = 0.5) +facet_grid(.~RIAGENDR)
