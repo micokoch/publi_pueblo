@@ -78,8 +78,12 @@ write_csv(g6_comp, "g6_complete.csv")
 smoking2017 <- nhanes('SMQ_J')
 cotininebl2017 <- nhanes('COT_J')
 leadbl2017 <- nhanes('PBCD_J')
+asthma2017 <- nhanes('MCQ_J')
+shs2017 <- nhanes('SMQSHS_J')
 group7 <- merge(smoking2017, cotininebl2017, by = "SEQN") %>% 
-  merge(leadbl2017, by = "SEQN")
+  merge(leadbl2017, by = "SEQN") %>% 
+  merge(asthma2017, by = 'SEQN') %>% 
+  merge(shs2017, by = 'SEQN')
 write_csv(group7, "group7.csv")
 # Group 7 and Confounders
 g7_comp = merge(group7, demogconf2017, by = "SEQN")
