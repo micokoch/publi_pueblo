@@ -50,11 +50,24 @@ write_csv(g3_comp, "g3_complete.csv")
 # Group 4
 pah2015 <- nhanes('PAH_I')
 depress2015 <- nhanes('DPQ_I')
-group4 <- merge(pah2015, heart2015, by = "SEQN")
+group4 <- merge(pah2015, depress2015, by = "SEQN")
 write_csv(group4, "group4.csv")
 # Group 4 and Confounders
 g4_comp = merge(group4, demogconf2015, by = "SEQN")
 write_csv(g4_comp, "g4_complete.csv")
+
+#Group 4 - Youssef requests
+head(group4)
+group4_yr <- group4 %>% 
+  select(c('SEQN', 'URXP01'))
+group4_yr$dep_score = rowSums(group4[,c(17:26)])
+group4_yr = na.omit(group4_yr)
+head(group4_yr)
+write_csv(group4_yr, "group4_yr.csv")
+# Group 4 YR and Confounders
+g4yr_comp = merge(group4_yr, demogconf2015, by = "SEQN")
+write_csv(g4yr_comp, "g4yr_complete.csv")
+
 
 # Group 5
 bpa2015 <-nhanes('EPHPP_I')
@@ -88,6 +101,17 @@ write_csv(group7, "group7.csv")
 # Group 7 and Confounders
 g7_comp = merge(group7, demogconf2017, by = "SEQN")
 write_csv(g7_comp, "g7_complete.csv")
+
+#Group 7 - Youssef requests
+head(group7)
+group7_yr <- group7 %>% 
+  select(c('SEQN', 'LBXCOT', 'MCQ010'))
+group7_yr = na.omit(group7_yr)
+head(group7_yr)
+write_csv(group7_yr, "group7_yr.csv")
+# Group 4 YR and Confounders
+g7yr_comp = merge(group7_yr, demogconf2017, by = "SEQN")
+write_csv(g7yr_comp, "g7yr_complete.csv")
 
 # Youssef
 demo <- nhanes('DEMO_J')
