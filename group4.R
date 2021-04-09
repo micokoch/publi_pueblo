@@ -55,14 +55,16 @@ glm.g4 = glm(dep_sum ~ urxlntf, data = g4rmout)
 # Now let's plot it
 ggplot(data = glm.g4, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red")
+  geom_smooth(method = "loess", color = "red") +
+  geom_smooth(method = "lm", color = "blue")
 
 # It doesn't look great, and there isn't an obvious pattern. We can try and add confounders to see if it makes a difference.
 glm.g4conf = glm(dep_sum ~ urxlntf + RIDAGEYR + RIAGENDR + RIDRETH3 + INDHHIN2 + INDFMPIR, data = g4rmout)
 
 ggplot(data = glm.g4conf, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red")
+  geom_smooth(method = "loess", color = "red") +
+  geom_smooth(method = "lm", color = "blue")
 
 # Not really much better, but we can talk about this data in class. "dep_sum" can be made into a bivariate outcome perhaps.
 # To start with, we can look at the full dataset without removing outliers
@@ -73,14 +75,26 @@ glm.g4all = glm(dep_sum ~ urxlntf, data = g4all)
 # Now let's plot it
 ggplot(data = glm.g4all, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red")
+  geom_smooth(method = "loess", color = "red") +
+  geom_smooth(method = "lm", color = "blue")
 
 # It looks better for extreme values (although there are few data points). Now try with all confounders.
 glm.g4allconf = glm(dep_sum ~ urxlntf + RIDAGEYR + RIAGENDR + RIDRETH3 + INDHHIN2 + INDFMPIR, data = g4all)
 
 ggplot(data = glm.g4allconf, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red")
+  geom_smooth(method = "loess", color = "red") +
+  geom_smooth(method = "lm", color = "blue")
 
 # Hope this helps!
+
+# Linear model
+lm.g4all = lm(dep_sum ~ urxlntf, data = g4all)
+
+# Now let's plot it
+ggplot(data = lm.g4all, mapping = aes(x = urxlntf, y = dep_sum)) +
+  geom_point(size = 0.5, alpha = 0.5) +
+  geom_smooth(method = "loess", color = "red") +
+  geom_smooth(method = "lm", color = "blue")
+
 
