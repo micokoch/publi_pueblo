@@ -108,8 +108,16 @@ write_csv(group3, "group3.csv")
 # Group 4
 pah2015 <- nhanes('PAH_I')
 depress2015 <- nhanes('DPQ_I')
-group4 <- merge(pah2015, heart2015)
+group4 <- merge(pah2015, depress2015)
 write_csv(group4, "group4.csv")
+
+#Tests to check variable type
+head(group4$DPQ010)
+class(group4$DPQ010)
+attributes(group4$DPQ010)
+str(group4$DPQ010)
+names(group4)
+head(group4)
 
 # Group 5
 bpa2015 <-nhanes('EPHPP_I')
