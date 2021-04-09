@@ -65,4 +65,22 @@ ggplot(data = glm.g4conf, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_smooth(method = "loess", color = "red")
 
 # Not really much better, but we can talk about this data in class. "dep_sum" can be made into a bivariate outcome perhaps.
+# To start with, we can look at the full dataset without removing outliers
+
+# Let's do a linear regression with just the exposure and outcome for the full dataset (with outliers)
+glm.g4all = glm(dep_sum ~ urxlntf, data = g4all)
+
+# Now let's plot it
+ggplot(data = glm.g4all, mapping = aes(x = urxlntf, y = dep_sum)) +
+  geom_point(size = 0.5, alpha = 0.5) +
+  geom_smooth(method = "loess", color = "red")
+
+# It looks better for extreme values (although there are few data points). Now try with all confounders.
+glm.g4allconf = glm(dep_sum ~ urxlntf + RIDAGEYR + RIAGENDR + RIDRETH3 + INDHHIN2 + INDFMPIR, data = g4all)
+
+ggplot(data = glm.g4allconf, mapping = aes(x = urxlntf, y = dep_sum)) +
+  geom_point(size = 0.5, alpha = 0.5) +
+  geom_smooth(method = "loess", color = "red")
+
 # Hope this helps!
+
