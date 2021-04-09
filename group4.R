@@ -6,7 +6,7 @@ group4 = read.csv("group4.csv") # Create object for group 4 variables
 
 # Create a new variable "dep_sum" that is the sum of DPQ010 to DPQ100
 names(group4) # Check what the column numbers are for DPQ010 to DPQ100 - 17 through 26
-group4$dep_sum = rowSums(group4[ ,c(17:26)]) # Create dep_sum variable
+group4$dep_sum = rowSums(group4[, c(17:26)]) # Create dep_sum variable
 head(group4, n = 10) # Check that deep_sum is the sum of DPQ010 to DPQ100 by looking at 10 first rows
 
 # Create a new object that only has the variables of interest (confounders haven't been added yet)
