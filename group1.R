@@ -1,7 +1,7 @@
 library(tidyverse) # If you haven't installed previously, first use: install.packages("tidyverse")
 
 conf2013 = read.csv("confounders2013.csv") # Create object for confounders
-group1 = read.csv("group1.csv") # Create object for group 4 variables
+group1 = read.csv("group1.csv") # Create object for group 1 variables
 
 
 # Create a new variable "dep_sum" that is the sum of DPQ010 to DPQ100
