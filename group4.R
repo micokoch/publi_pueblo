@@ -88,6 +88,19 @@ ggplot(data = glm.g4allconf, mapping = aes(x = urxlntf, y = dep_sum)) +
 
 # Hope this helps!
 
+#############
+# Improved analysis
+g4all$urxlog2tf <- log2(g4all$URXP01)
+hist(g4all$urxlog2tf)
+
+glm.g4allfinal = glm(dep_sum ~ urxlog2tf + RIDAGEYR + factor(RIAGENDR) + factor(RIDRETH3) + INDHHIN2 + INDFMPIR, data = g4all)
+summary(glm.g4allfinal)
+
+ggplot(data = glm.g4allfinal, mapping = aes(x = urxlog2tf, y = dep_sum)) +
+  geom_point(size = 0.5, alpha = 0.5) +
+  geom_smooth(method = "loess", color = "red") +
+  geom_smooth(method = "lm", color = "blue")
+
 # Linear model
 lm.g4all = lm(dep_sum ~ urxlntf, data = g4all)
 
@@ -97,4 +110,29 @@ ggplot(data = lm.g4all, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
 
+
+#### Youssef functions
+library(summarytools)
+
+# view(dfSummary(base2))
+view(dfSummary(g4all))
+
+# plot(LUXCAPM ~ LBXNFOA, data = base2)
+plot(dep_sum ~ URXP01, data = g4all)
+
+# plot(LUXCAPM ~ log(LBXNFOA), data = base2)
+plot(dep_sum ~ urxlntf, data = g4all)
+
+
+# lm.pfoa.univar=lm(LUXCAPM ~ LBXNFOA,data=base2)
+# final.data=subset(data5,KIQ022!=9)
+
+# lm.pfoa.univar=lm(LUXCAPM ~ LBXNFOA,data=base2)
+
+# summary(lm.pfoa.univar)
+
+# summary(lm.pfoa.univar)
+
+# lm.pfoa=lm(LUXCAPM  ~ log2(LBXNFOA)+factor(RIAGENDR)+RIDAGEYR+factor(RIDRETH3)+INDFMPIR,data=base2)
+# summary(lm.pfoa)
 
