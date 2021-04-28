@@ -10,3 +10,5 @@ g3all = merge(g3sm, conf2015, by="SEQN")
 head(g3all)
 
 write_csv(g3all, "g3all.csv")
+
+
