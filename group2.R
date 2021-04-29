@@ -16,7 +16,7 @@ summary(g2sm) # Look at summary statistics - problems with outcome and exposure
 # Outcome: in the codebook, we see that for KIQ022, 7 means refused and 9 means don't know
 g2sm <- dplyr::filter(g2sm, g2sm$KIQ022 < 3) # Remove values greater than 2
 summary(g2sm$KIQ022) # Check that all values are between 1 and 2
-head(g2sm$KIQ022, n = 15) # Look at first 10 values
+head(g2sm$KIQ022, n = 15) # Look at first 15 values
 # In our data no = 2, but for binary outcome it is typical to have no = 0
 g2sm <- g2sm %>% mutate(KIQ022 = replace(KIQ022, KIQ022 == 2, 0)) # Change no to 0
 head(g2sm$KIQ022, n = 15) # Now all values for KIQ022 are 0 or 1, and match prior results
