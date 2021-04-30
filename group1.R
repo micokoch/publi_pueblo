@@ -28,19 +28,28 @@ quantile(g1all$URXPAR, probs = seq(0.9, 1, 0.01), na.rm = TRUE)
 largep01 <- dplyr::filter(g1all, g1all$URXPAR > 10)
 summary(largep01)
 
-g1all$urxlntf <- log(g1all$URXPAR)
-hist(g1all$urxlntf)
+g1all$urxlg2tf <- log2(g1all$URXPAR)
+hist(g1all$urxlg2tf)
 
-glm.g1all = glm(dep_sum ~ urxlntf, data = g1all)
-ggplot(data = glm.g1all, mapping = aes(x = urxlntf, y = dep_sum)) +
+glm.g1all = glm(dep_sum ~ urxlg2tf, data = g1all)
+ggplot(data = glm.g1all, mapping = aes(x = urxlg2tf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
+summary(glm.g1all)
+confint(glm.g1all)
 
-glm.g1allconf = glm(dep_sum ~ urxlntf + RIDAGEYR + RIAGENDR + RIDRETH3 + INDHHIN2 + INDFMPIR, data = g1all)
-ggplot(data = glm.g1allconf, mapping = aes(x = urxlntf, y = dep_sum)) +
+lm.g1all = lm(dep_sum ~ urxlg2tf, data = g1all)
+ggplot(data = lm.g1all, mapping = aes(x = urxlg2tf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
+summary(lm.g1all)
+confint(lm.g1all)
 
+lm.g1allconf = lm(dep_sum ~ urxlg2tf + RIDAGEYR + RIAGENDR + RIDRETH3 + INDHHIN2 + INDFMPIR, data = g1all)
+ggplot(data = lm.g1allconf, mapping = aes(x = urxlg2tf, y = dep_sum)) +
+  geom_point(size = 0.5, alpha = 0.5) +
+  geom_smooth(method = "lm", color = "blue")
+summary(lm.g1all)
+confint(lm.g1all)
 
+summary(g1all)
