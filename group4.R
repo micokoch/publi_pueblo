@@ -5,12 +5,27 @@ group4 = read.csv("group4.csv") # Create object for group 4 variables
 
 
 # Create a new variable "dep_sum" that is the sum of DPQ010 to DPQ100
-names(group4) # Check what the column numbers are for DPQ010 to DPQ100 - 17 through 26
-group4$dep_sum = rowSums(group4[, c(17:26)]) # Create dep_sum variable
-head(group4, n = 10) # Check that deep_sum is the sum of DPQ010 to DPQ100 by looking at 10 first rows
+
+g4fix <- group4
+g4fix <- g4fix %>% 
+  dplyr::filter(DPQ010 < 3) %>% 
+  dplyr::filter(DPQ020 < 3) %>% 
+  dplyr::filter(DPQ030 < 3) %>% 
+  dplyr::filter(DPQ040 < 3) %>% 
+  dplyr::filter(DPQ050 < 3) %>% 
+  dplyr::filter(DPQ060 < 3) %>% 
+  dplyr::filter(DPQ070 < 3) %>% 
+  dplyr::filter(DPQ080 < 3) %>% 
+  dplyr::filter(DPQ090 < 3) %>% 
+  dplyr::filter(DPQ100 < 3)
+
+names(g4fix) # Check what the column numbers are for DPQ010 to DPQ100 - 17 through 26
+g4fix$dep_sum = rowSums(g4fix[, c(17:26)]) # Create dep_sum variable
+head(g4fix, n = 10) # Check that deep_sum is the sum of DPQ010 to DPQ100 by looking at 10 first rows
+hist(g4fix$dep_sum)
 
 # Create a new object that only has the variables of interest (confounders haven't been added yet)
-g4sm = dplyr::select(group4,"SEQN", "URXP01", "dep_sum") # Limit your variables to those used for exposure and outcome
+g4sm = dplyr::select(g4fix,"SEQN", "URXP01", "dep_sum") # Limit your variables to those used for exposure and outcome
 head(g4sm, n = 20) # Look at the first 20 rows of your object
 g4sm = na.omit(g4sm) # Eliminate observations that have NA values
 head(g4sm, n = 20) # Check the first 20 rows again
@@ -55,7 +70,6 @@ glm.g4 = glm(dep_sum ~ urxlntf, data = g4rmout)
 # Now let's plot it
 ggplot(data = glm.g4, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
 
 # It doesn't look great, and there isn't an obvious pattern. We can try and add confounders to see if it makes a difference.
@@ -63,7 +77,6 @@ glm.g4conf = glm(dep_sum ~ urxlntf + RIDAGEYR + RIAGENDR + RIDRETH3 + INDHHIN2 +
 
 ggplot(data = glm.g4conf, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
 
 # Not really much better, but we can talk about this data in class. "dep_sum" can be made into a bivariate outcome perhaps.
@@ -75,7 +88,6 @@ glm.g4all = glm(dep_sum ~ urxlntf, data = g4all)
 # Now let's plot it
 ggplot(data = glm.g4all, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
 
 # It looks better for extreme values (although there are few data points). Now try with all confounders.
@@ -83,7 +95,6 @@ glm.g4allconf = glm(dep_sum ~ urxlntf + RIDAGEYR + RIAGENDR + RIDRETH3 + INDHHIN
 
 ggplot(data = glm.g4allconf, mapping = aes(x = urxlntf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
 
 # Hope this helps!
@@ -95,14 +106,16 @@ hist(g4all$urxlog2tf)
 
 glm.g4allfinal = glm(dep_sum ~ urxlog2tf + RIDAGEYR + factor(RIAGENDR) + factor(RIDRETH3) + INDHHIN2 + INDFMPIR, data = g4all)
 summary(glm.g4allfinal)
+confint(glm.g4allfinal)
 
 ggplot(data = glm.g4allfinal, mapping = aes(x = urxlog2tf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
-  geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
 
 # Linear model
 lm.g4all = lm(dep_sum ~ urxlntf, data = g4all)
+summary(lm.g4all)
+confint(lm.g4all)
 
 # Now let's plot it
 ggplot(data = lm.g4all, mapping = aes(x = urxlntf, y = dep_sum)) +
