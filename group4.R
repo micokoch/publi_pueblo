@@ -8,16 +8,16 @@ group4 = read.csv("group4.csv") # Create object for group 4 variables
 
 g4fix <- group4
 g4fix <- g4fix %>% 
-  dplyr::filter(DPQ010 < 3) %>% 
-  dplyr::filter(DPQ020 < 3) %>% 
-  dplyr::filter(DPQ030 < 3) %>% 
-  dplyr::filter(DPQ040 < 3) %>% 
-  dplyr::filter(DPQ050 < 3) %>% 
-  dplyr::filter(DPQ060 < 3) %>% 
-  dplyr::filter(DPQ070 < 3) %>% 
-  dplyr::filter(DPQ080 < 3) %>% 
-  dplyr::filter(DPQ090 < 3) %>% 
-  dplyr::filter(DPQ100 < 3)
+  dplyr::filter(DPQ010 < 4) %>% 
+  dplyr::filter(DPQ020 < 4) %>% 
+  dplyr::filter(DPQ030 < 4) %>% 
+  dplyr::filter(DPQ040 < 4) %>% 
+  dplyr::filter(DPQ050 < 4) %>% 
+  dplyr::filter(DPQ060 < 4) %>% 
+  dplyr::filter(DPQ070 < 4) %>% 
+  dplyr::filter(DPQ080 < 4) %>% 
+  dplyr::filter(DPQ090 < 4) %>% 
+  dplyr::filter(DPQ100 < 4)
 
 names(g4fix) # Check what the column numbers are for DPQ010 to DPQ100 - 17 through 26
 g4fix$dep_sum = rowSums(g4fix[, c(17:26)]) # Create dep_sum variable
