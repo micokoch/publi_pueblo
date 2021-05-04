@@ -30,6 +30,8 @@ g7all = merge(g7sm, conf2017, by="SEQN") # Merge observations that have matching
 head(g7all, n = 15) # Note that some of the confounders have NA, but we won't worry about that
 write_csv(g7all, "g7all.csv") # Write a csv file that has all your variables and confounders
 
+summary(g7all)
+
 # Fit a logistic model to the data without confounders and look at results
 glm.g7all = glm(MCQ010 ~ lg2LBXCOT, family = binomial(link = "logit"), data = g7all)
 summary(glm.g7all)
