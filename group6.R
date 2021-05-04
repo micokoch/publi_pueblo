@@ -43,4 +43,5 @@ ggplot(data = lm.g6allconf, mapping = aes(x = urxp1lg2tf, y = CFDAST)) +
   geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
 summary(lm.g6allconf)
+confint(lm.g6allconf)
 
