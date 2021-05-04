@@ -35,5 +35,12 @@ ggplot(data = glm.g6allconf, mapping = aes(x = urxp1lg2tf, y = CFDAST)) +
   geom_point(size = 0.5, alpha = 0.5) +
   geom_smooth(method = "loess", color = "red") +
   geom_smooth(method = "lm", color = "blue")
+summary(glm.g6allconf)
 
+lm.g6allconf = lm(CFDAST ~ urxp1lg2tf + RIDAGEYR + factor(RIAGENDR) + factor(RIDRETH3) + INDHHIN2 + INDFMPIR, data = g6all)
+ggplot(data = lm.g6allconf, mapping = aes(x = urxp1lg2tf, y = CFDAST)) +
+  geom_point(size = 0.5, alpha = 0.5) +
+  geom_smooth(method = "loess", color = "red") +
+  geom_smooth(method = "lm", color = "blue")
+summary(lm.g6allconf)
 
