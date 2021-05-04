@@ -49,7 +49,7 @@ lm.g1allconf = lm(dep_sum ~ urxlg2tf + RIDAGEYR + RIAGENDR + RIDRETH3 + INDHHIN2
 ggplot(data = lm.g1allconf, mapping = aes(x = urxlg2tf, y = dep_sum)) +
   geom_point(size = 0.5, alpha = 0.5) +
   geom_smooth(method = "lm", color = "blue")
-summary(lm.g1all)
-confint(lm.g1all)
+summary(lm.g1allconf)
+confint(lm.g1allconf)
 
 summary(g1all)
